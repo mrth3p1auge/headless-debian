@@ -141,7 +141,7 @@ Reconfigure your locales:
 
 
 # Default users and password
-By default the openssh-server will not allow root to login, so durring the install two accounts are careated:
+By default the openssh-server will not allow root to login, so durring the install two accounts are created:
 
 | User      |  Password  |
 | --------- | ---------- |
