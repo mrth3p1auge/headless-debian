@@ -13,7 +13,7 @@ This installer has been tested on:
 * Generic PC X86 system that is serial console.
 * DECISO A10
 * Supermicro servers 
-* Dell serverss
+* Dell servers
 * VM using serial console
 
 # Serial console
