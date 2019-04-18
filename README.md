@@ -116,8 +116,8 @@ Install Grub bootloader:
 	x Device for boot loader installation:                                    x
 	x                                                                         x
 	x        Enter device manually                                            x
-	x        /dev/sda  (nvme-SATA_SSD_128GB)                    x
-	x        /dev/sdb  (usb-Multiple_TL001)            x
+	x        /dev/sda  (nvme-SATA_SSD_128GB)                                  x
+	x        /dev/sdb  (usb-Multiple_TL001)                                   x
 	x                                                                         x
 	x     <Go Back>                                                           x
 	x                                                                         x
