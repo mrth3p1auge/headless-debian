@@ -54,9 +54,9 @@ Use a Debian Strech host for building. Building under Debian testing or Debian s
 
 Checkout the project:
 
-	git clone https://github.com/ffries/Debian-installer-with-serial-console.git 
+	git clone https://github.com/mrth3p1auge/headless-debian.git 
 
-	cd Headless-Debian 
+	cd headless-debian 
 
 You may need to customize profiles/serial-console.conf
 
