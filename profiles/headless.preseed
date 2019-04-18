@@ -1,0 +1,71 @@
+d-i debian-installer/locale string en_US
+# Keyboard selection.
+# Enable automatic (interactive) keymap detection.
+d-i debian-installer/language string en
+d-i debian-installer/country string US
+d-i debian-installer/locale string en_US.UTF-8
+
+##
+# Keyboard
+##
+d-i keyboard-configuration/xkb-keymap select us
+
+# Load firmware before detecting network cards
+d-i hw-detect/load_firmware boolean true
+d-i netcfg/enable boolean true
+
+# Mirrors
+d-i mirror/country string US
+d-i mirror/http/hostname string http.us.debian.org
+d-i mirror/http/directory string /debian
+d-i mirror/http/proxy string 
+
+# Install Suite
+d-i mirror/suite string non-free
+
+#======>>>  NTP TIME 
+## Controls whether or not the hardware clock is set to UTC.
+d-i clock-setup/utc boolean true 
+d-i time/zone string US/Eastern 
+d-i clock-setup/ntp boolean true
+
+#===>>> Partitions
+##
+d-i partman-auto/disk string /dev/sda
+d-i partman-auto/method string regular
+d-i partnam-auto/chooser_recipe select atomic
+d-i partman-partitioniong/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+d-i partman/confirm_nooverwrite boolean true
+
+# root
+d-i passwd/root-password password toor
+d-i passwd/root-password-again password toor 
+
+# user
+d-i passwd/user-fullname string tuffguy
+d-i passwd/username string tuffguy
+d-i passwd/user-password password heycoolaid
+d-i passwd/user-password-again password heycoolaid
+d-i passwd/user-uid string 2000
+
+
+# Include non-free debian section
+d-i apt-setup/nonfree boolean true
+d-i apt-setup/contrib boolean true
+d-i apt-setup-select multiselect security, updates
+d-i apt-setup/security_host string security.debian.org
+
+
+d-i pkgsel/upgrade select full-upgrade
+
+##
+# Popularity Contest
+# #
+popularity-contest popularity-contest/participate boolean false
+
+# Disable video and enable serial console
+d-i debian-installer/add-kernel-opts string video=off\
+ amd_iommu_intr=vapic align_va_addr=64 spectre_v2=off pci=realloc\
+ audit=0 dma_debug=off pti=off l1tf=off noibpb no_spec_store_bypass_disable console=ttyS0,115200
