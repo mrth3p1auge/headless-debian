@@ -8,6 +8,12 @@
 
 SYSTEM=$(cat /etc/os-release | grep PRETTY_NAME | tail -c +13 | tr -d \")
 
+Yellow="\e[33m"
+Blue="\e[34m"
+Red="\e[31m"
+Bold="\e[1m"
+Reset="\e[0m"
+
 PREQU=(simple-cdd xorriso)
 INSTALl=()
 
@@ -15,13 +21,14 @@ function PrintHelp {
     printf "\n"
     printf "Usage for %s:\n" $0
     printf "\n"
-    printf "\t --redbuild | -r\n"
+    printf "\t${Yellow}${Bold} --redbuild | -r\n${Reset}"
     printf "\t\t This simply rebuilds the image usingt the existing mirror\n"
     printf "\t\t assuming a fresh build has already happened. \n"
     printf "\n"
-    printf "\t --mirror | -m\n"
+    printf "\t${Yellow}${Bold} --mirror | -m\n${Reset}"
     printf "\t\t This will only build the mirror used to create the imaage\n"
-    printf "\t\t but no image will be producted"
+    printf "\t\t but no image will be producted \n"
+    printf "\n"
 }
 
 function CheckRoot () {
@@ -70,8 +77,8 @@ while [[ $# -gt 0]] ; do
             ;;
         *)
             PrintHelp
+            exit 1
             ;;
-
     esac
 done
 
