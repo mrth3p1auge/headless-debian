@@ -15,7 +15,23 @@ while [[ $# -gt 0]] ; do
    arg="$1";
    shift; 
    case "$arg" in
-       -r|--r
+       --help|-h)
+           Help
+           shift
+           ;;
+
+       --rebuild|-r)
+           RebuildOnly
+           shift
+           ;;
+
+        --mirror|-m)
+            MirrorOnly
+            shift
+            ;;
+    esac
+done
+
 
 function CheckRoot () {
     # We need at least one argv, or exit postive we go
