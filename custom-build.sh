@@ -11,27 +11,18 @@ SYSTEM=$(cat /etc/os-release | grep PRETTY_NAME | tail -c +13 | tr -d \")
 PREQU=(simple-cdd xorriso)
 INSTALl=()
 
-while [[ $# -gt 0]] ; do
-   arg="$1";
-   shift; 
-   case "$arg" in
-       --help|-h)
-           Help
-           shift
-           ;;
-
-       --rebuild|-r)
-           RebuildOnly
-           shift
-           ;;
-
-        --mirror|-m)
-            MirrorOnly
-            shift
-            ;;
-    esac
-done
-
+function PrintHelp {
+    printf "\n"
+    printf "Usage for %s:\n" $0
+    printf "\n"
+    printf "\t --redbuild | -r\n"
+    printf "\t\t This simply rebuilds the image usingt the existing mirror\n"
+    printf "\t\t assuming a fresh build has already happened. \n"
+    printf "\n"
+    printf "\t --mirror | -m\n"
+    printf "\t\t This will only build the mirror used to create the imaage\n"
+    printf "\t\t but no image will be producted"
+}
 
 function CheckRoot () {
     # We need at least one argv, or exit postive we go
@@ -58,6 +49,31 @@ function CheckPrerequsites () {
 function ToInstall () {
     apt install ${INSTALL[@]}
 }
+
+while [[ $# -gt 0]] ; do
+   arg="$1";
+   shift; 
+   case "$arg" in
+       --help|-h)
+           PrintHelp
+           shift
+           ;;
+
+       --rebuild|-r)
+           RebuildOnly
+           shift
+           ;;
+
+        --mirror|-m)
+            MirrorOnly
+            shift
+            ;;
+        *)
+            PrintHelp
+            ;;
+
+    esac
+done
 
 
 
