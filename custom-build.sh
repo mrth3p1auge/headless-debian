@@ -18,7 +18,7 @@ Bold="\e[1m"
 Reset="\e[0m"
 
 PREQU=(simple-cdd xorriso)
-INSTALl=()
+INSTALL=()
 
 function CheckRoot () {
     # We need at least one argv, or exit postive we go
