@@ -47,7 +47,11 @@ function ToInstall () {
 }
 
 function RebuildOnly () {
-    build-simple-cdd --config profiles/${PROFILE} --no-do-mirror --dist ${DIST}
+    build-simple-cdd --conf profiles/${PROFILE} --no-do-mirror --dist ${DIST}
+}
+
+function MirrorOnly () {
+    build-simple-cdd --conf profiles/${PROFILE} --do-mirror --dist ${DIST
 }
 
 function PrintHelp {
